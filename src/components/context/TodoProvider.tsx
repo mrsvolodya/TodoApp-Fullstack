@@ -8,7 +8,19 @@ export function TodoProvider({ children }: TodoTypeProvider) {
     { id: 1, title: "Todo1", completed: false },
   ]);
 
+  function handleAddTodo(title: string) {
+    if (!title) return;
+
+    const newTodo = {
+      id: +new Date(),
+      title,
+      completed: false,
+    };
+
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+  }
+
   return (
-    <TodoContext.Provider value={{ todos }}>{children}</TodoContext.Provider>
+    <TodoContext.Provider value={{ todos, handleAddTodo }}>{children}</TodoContext.Provider>
   );
 }
