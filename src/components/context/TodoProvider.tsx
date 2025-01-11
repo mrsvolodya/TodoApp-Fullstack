@@ -4,9 +4,7 @@ import { TodoTypeProvider } from "../../types/TodoTypeProvider";
 import { TodoContext } from "./TodoContext";
 
 export function TodoProvider({ children }: TodoTypeProvider) {
-  const [todos, setTodos] = useState<Todo[]>([
-    { id: 1, title: "Todo1", completed: false },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   function handleAddTodo(title: string) {
     if (!title) return;
@@ -32,7 +30,9 @@ export function TodoProvider({ children }: TodoTypeProvider) {
     });
   }
   return (
-    <TodoContext.Provider value={{ todos, handleAddTodo, handleOnDelete, handleOnComplete }}>
+    <TodoContext.Provider
+      value={{ todos, handleAddTodo, handleOnDelete, handleOnComplete }}
+    >
       {children}
     </TodoContext.Provider>
   );

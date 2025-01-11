@@ -9,10 +9,14 @@ type TodoItemProps = {
 export function TodoItem({ todo }: TodoItemProps) {
   const { handleOnDelete, handleOnComplete } = useContext(TodoContext);
   return (
-    <div className="flex justify-between items-center w-full h-10 bg-slate-200 border-b-black px-3 rounded my-1">
+    <div
+      data-cy="TodoItem"
+      className="flex justify-between items-center w-full h-10 bg-slate-200 border-b-black px-3 rounded my-1"
+    >
       <div className="flex items-center">
         <label className="flex">
           <input
+            data-cy="TodoStatus"
             type="checkbox"
             checked={todo.completed}
             onChange={() => handleOnComplete(todo.id)}
@@ -21,7 +25,11 @@ export function TodoItem({ todo }: TodoItemProps) {
         </label>
         <span>{todo.title}</span>
       </div>
-      <button type="button" onClick={() => handleOnDelete(todo.id)}>
+      <button
+        data-cy="TodoDelete"
+        type="button"
+        onClick={() => handleOnDelete(todo.id)}
+      >
         <img src={crossImage} alt="Close image" className="w-3" />
       </button>
     </div>

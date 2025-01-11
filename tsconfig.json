@@ -1,5 +1,6 @@
 {
   "files": [],
+  "include": ["cypress", "src"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

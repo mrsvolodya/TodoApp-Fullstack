@@ -15,6 +15,7 @@ export function FormAddTodo() {
     <div>
       <form onSubmit={(e) => onSubmit(e)}>
         <input
+          data-cy="TodoTitleField"
           type="text"
           className="rounded w-80 h-10 px-2 cursor-pointer"
           value={title}
