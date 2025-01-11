@@ -5,4 +5,5 @@ export const TodoContext = createContext<TodoTypeContext>({
   todos: [],
   handleAddTodo: () => [],
   handleOnDelete: () => [],
+  handleOnComplete: () => [],
 });

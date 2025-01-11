@@ -24,8 +24,15 @@ export function TodoProvider({ children }: TodoTypeProvider) {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   }
 
+  function handleOnComplete(id: number) {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      );
+    });
+  }
   return (
-    <TodoContext.Provider value={{ todos, handleAddTodo, handleOnDelete }}>
+    <TodoContext.Provider value={{ todos, handleAddTodo, handleOnDelete, handleOnComplete }}>
       {children}
     </TodoContext.Provider>
   );
