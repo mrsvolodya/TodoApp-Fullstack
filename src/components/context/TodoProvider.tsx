@@ -20,7 +20,13 @@ export function TodoProvider({ children }: TodoTypeProvider) {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   }
 
+  function handleOnDelete(id: number) {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }
+
   return (
-    <TodoContext.Provider value={{ todos, handleAddTodo }}>{children}</TodoContext.Provider>
+    <TodoContext.Provider value={{ todos, handleAddTodo, handleOnDelete }}>
+      {children}
+    </TodoContext.Provider>
   );
 }

@@ -4,4 +4,5 @@ import { TodoTypeContext } from "../../types/TodoTypeContext";
 export const TodoContext = createContext<TodoTypeContext>({
   todos: [],
   handleAddTodo: () => [],
+  handleOnDelete: () => [],
 });
