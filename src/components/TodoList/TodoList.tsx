@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { TodoItem } from "../TodoItem/TodoItem";
+import { TodoContext } from "../context/TodoContext";
 
 export function TodoList() {
+  const { todos } = useContext(TodoContext);
   return (
     <div className="w-full">
-      {[{ id: 1, title: "Todo1", completed: false }].map((todo) => (
+      {todos.map((todo) => (
         <TodoItem todo={todo} key={todo.id} />
       ))}
     </div>
